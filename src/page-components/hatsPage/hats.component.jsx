@@ -3,7 +3,7 @@ import React from "react";
 const Hats = () => {
   return (
     <div>
-      <h3>HATS PAGE</h3>
+      <h3 className="font-weight-bold">HATS PAGE</h3>
     </div>
   );
 };

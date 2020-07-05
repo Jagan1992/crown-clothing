@@ -3,3 +3,7 @@ body {
   background-color: #fdfffc;
   padding: 20px 60px;
 }
+
+a:link {
+  text-decoration: none;
+}
