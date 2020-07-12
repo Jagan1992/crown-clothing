@@ -56,7 +56,7 @@ class SignUp extends React.Component {
               <div className="sign-in">
                 <div className="card-header">
                   <h2 className="spacing">
-                    If do not have an account Please register
+                    If don't have an account please register
                   </h2>
                 </div>
                 <div className="card-body">

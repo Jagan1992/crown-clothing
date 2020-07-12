@@ -5,7 +5,7 @@ import "./sign-in-sign-out.style.scss";
 
 const SignInSignOut = () => {
   return (
-    <div className="font-weight-bold sign-in-and-sign-up">
+    <div className="font-weight-bold sign-in-and-sign-up top-spacing">
       <SignIn />
       <SignUp />
     </div>
