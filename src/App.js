@@ -6,7 +6,7 @@ import Hats from "./page-components/hatsPage/hats.component";
 import Shop from "./page-components/shopPage/shop.component";
 import Contact from "./page-components/contact/contact-component";
 import SignInSignOut from "./page-components/sign-in-sign-out/sign-in-sign-out-component";
-import { auth } from "./firebase/firebase.utils";
+import { createUserProfileDocument, auth } from "./firebase/firebase.utils";
 import "./App.css";
 
 class App extends React.Component {
@@ -21,11 +21,24 @@ class App extends React.Component {
   unSubscribeAuth = null;
 
   componentDidMount() {
-    this.unSubscribeAuth = auth.onAuthStateChanged((user) => {
-      this.setState({
-        currentUser: user,
-      });
-      console.log(user);
+    this.unSubscribeAuth = auth.onAuthStateChanged(async (userAuth) => {
+      if (userAuth) {
+        const userRef = await createUserProfileDocument(userAuth);
+
+        userRef.onSnapshot((snapShot) => {
+          this.setState({
+            currentUser: {
+              id: snapShot.id,
+              displayName: snapShot.data().displayName,
+              emailId: snapShot.data().email,
+              createDate: snapShot.data().createdDate,
+            },
+          });
+        });
+        this.setState({
+          currentUser: userAuth,
+        });
+      }
     });
   }
 

@@ -38,7 +38,7 @@ class SignIn extends React.Component {
               </div>
               <div className="card-body">
                 <div className="card-title">
-                  <span>Sign in with your email and password</span>
+                  <span>Sign in with your Email and Password</span>
                 </div>
                 <FormInput
                   type="email"
@@ -61,13 +61,13 @@ class SignIn extends React.Component {
                     type="submit"
                     value="SIGN IN"
                     className="custom-button mr-4 btn"
-                  ></CustomButton>
+                  />
                   <CustomButton
                     type="button"
                     value="SIGN IN WITH GOOGLE"
                     className="custom-button google-Button btn"
                     handleClick={signInWithGoogle}
-                  ></CustomButton>
+                  />
                 </div>
               </div>
             </div>
