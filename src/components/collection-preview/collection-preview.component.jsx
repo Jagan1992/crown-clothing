@@ -19,7 +19,7 @@ const CollectionPreview = ({ title, items }) => {
                   itemName={item.name}
                   imageUrl={item.imageUrl}
                   itemPrice={item.price}
-                ></CollectionItem>
+                />
               ))}
           </div>
         </div>

@@ -42,7 +42,9 @@ class SignIn extends React.Component {
           <div className="card card-top-align">
             <div className="sign-in">
               <div className="card-header">
-                <h2 className="spacing"> If you already have an account</h2>
+                <h2 className="spacing font-weight-bold">
+                  If you already have an account
+                </h2>
               </div>
               <div className="card-body">
                 <div className="card-title">
