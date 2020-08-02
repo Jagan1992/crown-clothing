@@ -11,3 +11,7 @@ a:link {
 * {
   box-sizing: border-box;
 }
+
+.text-transform {
+  text-transform: uppercase;
+}

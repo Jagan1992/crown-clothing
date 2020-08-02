@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { auth } from "../../firebase/firebase.utils";
 import { connect } from "react-redux";
 import { ReactComponent as LogoCrown } from "../../assets/crown.svg";
+import CartIcon from "../../components/cart-icon/cart-icon-component";
 import "./header-component.style.scss";
 
 const Header = ({ currentUser }) => {
@@ -20,6 +21,16 @@ const Header = ({ currentUser }) => {
             CONTACT
           </Link>
           {currentUser ? (
+            <div className="font-weight-bold text-dark option">
+              Hi ,
+              <span className="px-2 text-transform">
+                {currentUser.displayName}
+              </span>
+            </div>
+          ) : (
+            ""
+          )}
+          {currentUser ? (
             <div
               className="font-weight-bold text-dark option"
               onClick={() => auth.signOut()}
@@ -31,6 +42,7 @@ const Header = ({ currentUser }) => {
               SIGN IN
             </Link>
           )}
+          <CartIcon />
         </div>
       </div>
     </div>
