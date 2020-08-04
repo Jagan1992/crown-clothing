@@ -1,7 +1,10 @@
 import React from "react";
+import { connect } from "react-redux";
+import { AddItem } from "../../reducer/cart-reducer/cart-actions";
+import CustomButton from "../custom-button/custom-button.component";
 import "./collection-item.style.scss";
 
-const CollectionItem = ({ itemName, imageUrl, itemPrice }) => {
+const CollectionItem = ({ item, AddItem }) => {
   return (
     <div className="row mx-md-n5">
       <div className="col px-md-5">
@@ -10,13 +13,19 @@ const CollectionItem = ({ itemName, imageUrl, itemPrice }) => {
             <div
               className="image"
               style={{
-                backgroundImage: `url(${imageUrl})`,
+                backgroundImage: `url(${item.imageUrl})`,
               }}
             ></div>
             <div className="collection-footer">
-              <span className="font-weight-bold name">{itemName}</span>
-              <span className="font-weight-bold">${itemPrice}</span>
+              <span className="font-weight-bold name">{item.name}</span>
+              <span className="font-weight-bold">${item.price}</span>
             </div>
+            <CustomButton
+              type="button"
+              value="Add to Cart"
+              className="inverted custom-button mr-4 btn"
+              handleClick={() => AddItem(item)}
+            ></CustomButton>
           </div>
         </div>
       </div>
@@ -24,4 +33,11 @@ const CollectionItem = ({ itemName, imageUrl, itemPrice }) => {
   );
 };
 
-export default CollectionItem;
+//redux function for adding the cart.
+const misDisPatchToProps = (dispatch) => ({
+  AddItem: (item) => {
+    dispatch(AddItem(item));
+  },
+});
+
+export default connect(null, misDisPatchToProps)(CollectionItem);

@@ -15,13 +15,13 @@ const Header = ({ currentUser, hidden }) => {
           <LogoCrown className="logo" />
         </Link>
         <div className="options">
-          <Link exact to="/shop" className="font-weight-bold text-dark option">
+          <Link to="/shop" className="font-weight-bold text-dark option">
             SHOP
           </Link>
           <Link to="/contact" className="font-weight-bold text-dark option">
             CONTACT
           </Link>
-          {currentUser ? (
+          {/*currentUser ? (
             <div className="font-weight-bold text-dark option">
               WELCOME ,
               <span className="px-2 text-transform">
@@ -30,7 +30,7 @@ const Header = ({ currentUser, hidden }) => {
             </div>
           ) : (
             ""
-          )}
+          )*/}
           {currentUser ? (
             <div
               className="font-weight-bold text-dark option"

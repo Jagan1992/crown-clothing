@@ -15,7 +15,9 @@ const CartIcon = ({ HideCart }) => {
 
 //redux function for hiding the cart.
 const mapDisPatchToProps = (dispatch) => ({
-  HideCart: () => dispatch(HideCart()),
+  HideCart: () => {
+    dispatch(HideCart());
+  },
 });
 
 export default connect(null, mapDisPatchToProps)(CartIcon);
