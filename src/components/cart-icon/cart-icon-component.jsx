@@ -13,7 +13,7 @@ const CartIcon = ({ HideCart }) => {
   );
 };
 
-//redux function for hiding the cart.
+//this is used for an action method in redux.
 const mapDisPatchToProps = (dispatch) => ({
   HideCart: () => {
     dispatch(HideCart());

@@ -33,11 +33,11 @@ const CollectionItem = ({ item, AddItem }) => {
   );
 };
 
-//redux function for adding the cart.
-const misDisPatchToProps = (dispatch) => ({
+//this is used for an action method in redux.
+const mapDispatchToProps = (dispatch) => ({
   AddItem: (item) => {
     dispatch(AddItem(item));
   },
 });
 
-export default connect(null, misDisPatchToProps)(CollectionItem);
+export default connect(null, mapDispatchToProps)(CollectionItem);

@@ -61,10 +61,12 @@ class App extends React.Component {
   }
 }
 
+//this is used for mapping the state to props in redux.
 const mapStateToProps = ({ user }) => ({
   currentUser: user.currentUser,
 });
 
+//this is used for an action method in redux.
 const mapDispatchToProps = (dispatch) => ({
   setCurrentUser: (user) => dispatch(setCurrentUser(user)),
 });

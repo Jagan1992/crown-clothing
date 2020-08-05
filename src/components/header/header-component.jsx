@@ -51,6 +51,7 @@ const Header = ({ currentUser, hidden }) => {
   );
 };
 
+//this is used for mapping the state to props in redux.
 const mapStateToProps = (state) => ({
   currentUser: state.user.currentUser,
   hidden: state.cart.hidden,
