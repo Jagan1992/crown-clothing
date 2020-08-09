@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import CartItem from "../cart-item/cart-item.component";
 import CustomButton from "../../components/custom-button/custom-button.component";
+import { selectCartItems } from "../../reducer/cart-reducer/cart.selectors";
 import "../cart-drop-down/card-drop-down.styles.scss";
 
 const CartDropDown = ({ cartItems }) => {
@@ -25,7 +26,7 @@ const CartDropDown = ({ cartItems }) => {
 
 //this is used for mapping the state to props in redux.
 const mapStateToProps = (state) => ({
-  cartItems: state.cart.cartItems,
+  cartItems: selectCartItems(state),
 });
 
 export default connect(mapStateToProps, null)(CartDropDown);
