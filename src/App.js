@@ -8,6 +8,7 @@ import Hats from "./page-components/hatsPage/hats.component";
 import Shop from "./page-components/shopPage/shop.component";
 import Contact from "./page-components/contact/contact-component";
 import SignInSignOut from "./page-components/sign-in-sign-out/sign-in-sign-out-component";
+import CheckOut from "./components/checkout/checkout.component";
 import { createUserProfileDocument, auth } from "./firebase/firebase.utils";
 import { userSelector } from "./reducer/user-reducer/user.selector";
 //we can configure all the selectors here.
@@ -51,6 +52,7 @@ class App extends React.Component {
           <Route exact path="/shop" component={Shop} />
           <Route exact path="/shop/hats" component={Hats} />
           <Route exact path="/contact" component={Contact} />
+          <Route exact path="/checkout" component={CheckOut} />
           <Route
             exact
             path="/SignIn"

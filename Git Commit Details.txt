@@ -1,0 +1,11 @@
+
+reselect :
+reselect is used for creating the memoized selectors in which it will won't call the unwanted actions then it wont't change the state.
+
+It is used against all the mapStateToProps option.
+
+usage of reselect-
+Why Use Reselect to Create Selectors? The short answer is: for performance as Reselect provides a wrapper for creating selectors that are memoized. ... 
+The biggest benefit of Reselect is that selectors created with the library are memoized and therefore will only re-run if their arguments change.
+
+Commits on Aug 9, 2020 - Added the reselect package to use the reselect options for all mapStateToProps - Total Commits - 2.
