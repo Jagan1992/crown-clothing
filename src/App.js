@@ -9,6 +9,9 @@ import Shop from "./page-components/shopPage/shop.component";
 import Contact from "./page-components/contact/contact-component";
 import SignInSignOut from "./page-components/sign-in-sign-out/sign-in-sign-out-component";
 import { createUserProfileDocument, auth } from "./firebase/firebase.utils";
+import { userSelector } from "./reducer/user-reducer/user.selector";
+//we can configure all the selectors here.
+import { createStructuredSelector } from "reselect";
 import "./App.css";
 
 class App extends React.Component {
@@ -62,8 +65,8 @@ class App extends React.Component {
 }
 
 //this is used for mapping the state to props in redux.
-const mapStateToProps = ({ user }) => ({
-  currentUser: user.currentUser,
+const mapStateToProps = createStructuredSelector({
+  currentUser: userSelector,
 });
 
 //this is used for an action method in redux.

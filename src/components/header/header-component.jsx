@@ -5,6 +5,10 @@ import { connect } from "react-redux";
 import { ReactComponent as LogoCrown } from "../../assets/crown.svg";
 import CartIcon from "../../components/cart-icon/cart-icon-component";
 import CartDropDown from "../../components/cart-drop-down/card-drop-down-component";
+import { userSelector } from "../../reducer/user-reducer/user.selector";
+import { selectCartHidden } from "../../reducer/cart-reducer/cart.selectors";
+//we can configure all the selectors here to create a new selector.
+import { createStructuredSelector } from "reselect";
 import "./header-component.style.scss";
 
 const Header = ({ currentUser, hidden }) => {
@@ -52,9 +56,9 @@ const Header = ({ currentUser, hidden }) => {
 };
 
 //this is used for mapping the state to props in redux.
-const mapStateToProps = (state) => ({
-  currentUser: state.user.currentUser,
-  hidden: state.cart.hidden,
+const mapStateToProps = createStructuredSelector({
+  currentUser: userSelector,
+  hidden: selectCartHidden,
 });
 
 export default connect(mapStateToProps)(Header);
