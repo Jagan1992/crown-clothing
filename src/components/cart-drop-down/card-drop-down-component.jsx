@@ -4,11 +4,13 @@ import { connect } from "react-redux";
 import CartItem from "../cart-item/cart-item.component";
 import CustomButton from "../../components/custom-button/custom-button.component";
 import { selectCartItems } from "../../reducer/cart-reducer/cart.selectors";
+// cart action method for calling the hidden action in cart actions.
+import { HideCart } from "../../reducer/cart-reducer/cart-actions";
 //we can configure all the selectors here.
 import { createStructuredSelector } from "reselect";
 import "../cart-drop-down/card-drop-down.styles.scss";
 
-const CartDropDown = ({ cartItems, history }) => {
+const CartDropDown = ({ cartItems, history, HideCart }) => {
   return (
     <div className="cart-dropdown">
       <div className="collection-item light-container">
@@ -26,7 +28,11 @@ const CartDropDown = ({ cartItems, history }) => {
         type="button"
         value="GO TO CHECKOUT"
         className="custom-button mr-4 btn"
-        handleClick={() => history.push("/checkout")}
+        //calling two events in a single click
+        handleClick={() => {
+          history.push("/checkout");
+          HideCart();
+        }}
       />
     </div>
   );
@@ -37,4 +43,12 @@ const mapStateToProps = createStructuredSelector({
   cartItems: selectCartItems,
 });
 
-export default withRouter(connect(mapStateToProps, null)(CartDropDown));
+const mapDisPatchToProps = (dispatch) => ({
+  HideCart: () => {
+    dispatch(HideCart());
+  },
+});
+
+export default withRouter(
+  connect(mapStateToProps, mapDisPatchToProps)(CartDropDown)
+);

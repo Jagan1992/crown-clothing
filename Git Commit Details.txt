@@ -9,3 +9,14 @@ Why Use Reselect to Create Selectors? The short answer is: for performance as Re
 The biggest benefit of Reselect is that selectors created with the library are memoized and therefore will only re-run if their arguments change.
 
 Commits on Aug 9, 2020 - Added the reselect package to use the reselect options for all mapStateToProps - Total Commits - 2.
+
+withRouter : 
+WithRouter is a Higher Order Component(HOC) which is used for navigating to the component or another page by using history as props on a click event or any other event in React.
+
+
+Ex : 
+
+const HomePage={history}
+{
+ <SignIn onClick={()=>history.push("/Login")} />
+}

@@ -16,12 +16,23 @@ export const selectCartHidden = createSelector(
   (cart) => cart.hidden
 );
 
-//getting the total cartItems count.
+//getting the total cartItems count and then grouping the total based on quantity.
 export const selectCartItemsCount = createSelector(
   [selectCartItems],
   (cartItems) =>
     cartItems.reduce(
       (accumlatedQuantity, cartItem) => accumlatedQuantity + cartItem.quantity,
+      0
+    )
+);
+
+//getting the total cartItems and then grouping the cartItem by price.
+export const selectCartItemsTotal = createSelector(
+  [selectCartItems],
+  (cartItems) =>
+    cartItems.reduce(
+      (accumlatedQuantity, cartItem) =>
+        accumlatedQuantity + cartItem.quantity * cartItem.price,
       0
     )
 );
