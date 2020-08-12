@@ -20,3 +20,11 @@ const HomePage={history}
 {
  <SignIn onClick={()=>history.push("/Login")} />
 }
+
+
+Calling two functions in ReactJS Click event of button:
+
+Ex: handleClick={() => {
+          history.push("/checkout");
+          HideCart();
+        }}
