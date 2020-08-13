@@ -2,6 +2,7 @@ import { createStore, applyMiddleware } from "redux";
 import { logger } from "redux-logger";
 import rootReducer from "./root-reducer";
 import { composeWithDevTools } from "redux-devtools-extension";
+import { persistStore } from "redux-persist"; //for maintaining the data in local storage using persist store.
 
 const middlewares = [logger];
 
@@ -12,9 +13,9 @@ const composeEnhancers = composeWithDevTools({
   traceLimit: 25,
 });
 
-const store = createStore(
+export const store = createStore(
   rootReducer,
   composeEnhancers(applyMiddleware(...middlewares))
 );
 
-export default store;
+export const persistor = persistStore(store);

@@ -1,5 +1,5 @@
 
-reselect :
+1)reselect :
 reselect is used for creating the memoized selectors in which it will won't call the unwanted actions then it wont't change the state.
 
 It is used against all the mapStateToProps option.
@@ -10,9 +10,9 @@ The biggest benefit of Reselect is that selectors created with the library are m
 
 Commits on Aug 9, 2020 - Added the reselect package to use the reselect options for all mapStateToProps - Total Commits - 2.
 
-withRouter : 
-WithRouter is a Higher Order Component(HOC) which is used for navigating to the component or another page by using history as props on a click event or any other event in React.
 
+2)withRouter : 
+WithRouter is a Higher Order Component(HOC) which is used for navigating to the component or another page by using history as props on a click event or any other event in React.
 
 Ex : 
 
@@ -28,3 +28,8 @@ Ex: handleClick={() => {
           history.push("/checkout");
           HideCart();
         }}
+
+3)redux-persist :
+  redux-persist is an additional functionality provided by the redux which is used for storing the data in cache in both 
+  local and session storage.
+
