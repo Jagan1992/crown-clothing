@@ -31,5 +31,5 @@ Ex: handleClick={() => {
 
 3)redux-persist :
   redux-persist is an additional functionality provided by the redux which is used for storing the data in cache in both 
-  local and session storage.
+  local and session storage on our browser.
 

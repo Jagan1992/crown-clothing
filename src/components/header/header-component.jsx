@@ -7,7 +7,7 @@ import CartIcon from "../../components/cart-icon/cart-icon-component";
 import CartDropDown from "../../components/cart-drop-down/card-drop-down-component";
 import { userSelector } from "../../reducer/user-reducer/user.selector";
 import { selectCartHidden } from "../../reducer/cart-reducer/cart.selectors";
-//we can configure all the selectors here to create a new selector.
+//we can configure all the selectors here.
 import { createStructuredSelector } from "reselect";
 import "./header-component.style.scss";
 

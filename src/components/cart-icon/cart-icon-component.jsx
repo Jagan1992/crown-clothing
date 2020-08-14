@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { HideCart } from "../../reducer/cart-reducer/cart-actions";
 import { selectCartItemsCount } from "../../reducer/cart-reducer/cart.selectors";
-//we can configure all the selectors here to create a new selector
+//we can configure all the selectors here.
 import { createStructuredSelector } from "reselect";
 import { ReactComponent as ShoppingIcon } from "../../assets/shopping-bag.svg";
 import "./cart-icon.style.scss";
