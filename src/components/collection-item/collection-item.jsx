@@ -4,9 +4,9 @@ import { AddItem } from "../../reducer/cart-reducer/cart-actions";
 import CustomButton from "../custom-button/custom-button.component";
 import "./collection-item.style.scss";
 
-const CollectionItem = ({ item, AddItem }) => {
+const CollectionItem = ({ item, AddItem, rowDiv }) => {
   return (
-    <div className="row mx-md-n5">
+    <div className={rowDiv ? rowDiv : "row mx-md-n5"}>
       <div className="col px-md-5">
         <div className="p-3 border bg-light">
           <div className="collection-item light-container">

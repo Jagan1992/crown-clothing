@@ -51,7 +51,7 @@ Ex: handleClick={() => {
 5)Currying:
   Currying means where we can the pass the paramater one by one instead of passing a whole parameter at a time to a function.
 
-  Ex : const multiply=(a)=>(b)=>a*b
+  Ex : const multiply=(a)=>(b)=>a*b;
 
 
 
