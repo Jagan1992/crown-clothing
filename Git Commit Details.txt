@@ -53,5 +53,7 @@ Ex: handleClick={() => {
 
   Ex : const multiply=(a)=>(b)=>a*b;
 
-
+6)Return as objects:
+  Return as objects: with ID as type for each object collection so that you can filter by id in url instead of using the filter 
+  option in the array.
 
