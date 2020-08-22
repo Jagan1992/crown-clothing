@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { setCurrentUser } from "./reducer/user-reducer/user-actions";
 import Header from "./components/header/header-component.jsx";
 import Home from "./page-components/homePage/homepage-component";
-import Hats from "./page-components/hatsPage/hats.component";
 import Shop from "./page-components/shopPage/shop.component";
 import Contact from "./page-components/contact/contact-component";
 import SignInSignOut from "./page-components/sign-in-sign-out/sign-in-sign-out-component";
@@ -49,12 +48,10 @@ class App extends React.Component {
         <Header />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/shop" component={Shop} />
-          <Route exact path="/shop/hats" component={Hats} />
-          <Route exact path="/contact" component={Contact} />
-          <Route exact path="/checkout" component={CheckOut} />
+          <Route path="/shop" component={Shop} />
+          <Route path="/contact" component={Contact} />
+          <Route path="/checkout" component={CheckOut} />
           <Route
-            exact
             path="/SignIn"
             render={() =>
               this.props.currentUser ? <Redirect to="/" /> : <SignInSignOut />

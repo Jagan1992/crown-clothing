@@ -33,3 +33,25 @@ Ex: handleClick={() => {
   redux-persist is an additional functionality provided by the redux which is used for storing the data in cache in both 
   local and session storage on our browser.
 
+
+4)Javascript Prototypes:
+  Inherit the properties and method from a prototypes.
+
+  Ex : Date - Date is from Date.Prototypes.
+       Array - Array is from Array.prototypes.
+
+       var person={
+         name:Jagadeesh,
+         age:27
+       }
+
+       Person - Person is from Person.Prototypes.
+       person.name;//example of prototypes.
+
+5)Currying:
+  Currying means where we can the pass the paramater one by one instead of passing a whole parameter at a time to a function.
+
+  Ex : const multiply=(a)=>(b)=>a*b
+
+
+
