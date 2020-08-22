@@ -56,4 +56,8 @@ Ex: handleClick={() => {
 6)Return as objects:
   Return as objects: with ID as type for each object collection so that you can filter by id in url instead of using the filter 
   option in the array.
+  
 
+7)Converting the object to Array:
+  If it return as objects then we have to convert the object to a array.
+  Ex: Object.keys(shop.collections).map((key) => shop.collections[key])

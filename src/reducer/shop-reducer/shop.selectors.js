@@ -7,6 +7,11 @@ export const selectShopItems = createSelector(
   (shop) => shop.collections
 );
 
+//function for converting the object collections to Array.
+export const selectObjectToArray = createSelector([selectShopData], (shop) =>
+  Object.keys(shop.collections).map((key) => shop.collections[key])
+);
+
 export const selectCollection = (collectionUrlParam) =>
   createSelector(
     [selectShopItems],
