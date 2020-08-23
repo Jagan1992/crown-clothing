@@ -6,6 +6,7 @@ import {
   selectCartItemsTotal,
 } from "../../reducer/cart-reducer/cart.selectors";
 import CheckOutItem from "../checkout-item/checkout-item.component";
+import StripeCheckoutButton from "../stripe-button/stripe-button.component";
 import "./checkout.style.scss";
 
 const CheckOut = ({ cartItems, total }) => {
@@ -34,6 +35,13 @@ const CheckOut = ({ cartItems, total }) => {
       <div className="total">
         <span className="total font-weight-bold">Total : ${total}</span>
       </div>
+      <div className="test-warning">
+        *Please use the following test credit card for payments*
+        <br />
+        Card No: 5555 5555 5555 4444 - Exp Date: 05/23(Any Future Date) -
+        CVV:123(Any CVV)
+      </div>
+      <StripeCheckoutButton className="stripe-button" price={total} />
     </div>
   );
 };
