@@ -66,6 +66,11 @@ Ex: handleClick={() => {
   Ex: To install the Stripe-API in the react app. you can do it by using the following command.
   npm install react-stripe-checkout
 
-9)Stripe-API-test-link-for-creditcard-checking:
+9)Stripe-API:
+  Stripe-API-test-link-for-creditcard-checking:
   https://stripe.com/docs/testing#cards
 
+10)Heroku-app:
+  Heroku portal is used for hosting our application like IIS.
+  
+  Ex: Heroku Link : https://netscape-live.herokuapp.com/
