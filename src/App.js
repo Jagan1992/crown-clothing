@@ -2,7 +2,7 @@ import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { setCurrentUser } from "./reducer/user-reducer/user-actions";
-import Header from "./components/header/header-component.jsx";
+import Header from "./components/header/header-component";
 import Home from "./page-components/homePage/homepage-component";
 import Shop from "./page-components/shopPage/shop.component";
 import Contact from "./page-components/contact/contact-component";
