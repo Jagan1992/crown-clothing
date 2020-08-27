@@ -74,3 +74,7 @@ Ex: handleClick={() => {
   Heroku portal is used for hosting our application like IIS.
   
   Ex: Heroku Link : https://netscape-live.herokuapp.com/
+
+11)Styled-Components:
+  Styled Components is used for using our styles in JSX.we can write a function for each styles and then we can import it in our
+  component.it uses JSX so the styles rendering will be very fast instead of a normal css class file.

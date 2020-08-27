@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import { auth } from "../../firebase/firebase.utils";
 import { connect } from "react-redux";
 import { ReactComponent as LogoCrown } from "../../assets/crown.svg";
@@ -9,22 +9,29 @@ import { userSelector } from "../../reducer/user-reducer/user.selector";
 import { selectCartHidden } from "../../reducer/cart-reducer/cart.selectors";
 //we can configure all the selectors here.
 import { createStructuredSelector } from "reselect";
+import {
+  HeaderContainer,
+  LogoContainer,
+  OptionsContainer,
+  OptionLink,
+  OptionDiv,
+} from "./header.styled.component";
 import "./header-component.style.scss";
 
 const Header = ({ currentUser, hidden }) => {
   return (
     <div className="container">
-      <div className="header">
-        <Link to="/" className="logo-container">
+      <HeaderContainer>
+        <LogoContainer to="/">
           <LogoCrown className="logo" />
-        </Link>
-        <div className="options">
-          <Link to="/shop" className="font-weight-bold text-dark option">
+        </LogoContainer>
+        <OptionsContainer>
+          <OptionLink to="/shop" className="font-weight-bold text-dark">
             SHOP
-          </Link>
-          <Link to="/contact" className="font-weight-bold text-dark option">
+          </OptionLink>
+          <OptionLink to="/contact" className="font-weight-bold text-dark">
             CONTACT
-          </Link>
+          </OptionLink>
           {/*currentUser ? (
             <div className="font-weight-bold text-dark option">
               WELCOME ,
@@ -36,21 +43,21 @@ const Header = ({ currentUser, hidden }) => {
             ""
           )*/}
           {currentUser ? (
-            <div
-              className="font-weight-bold text-dark option"
+            <OptionDiv
+              className="font-weight-bold text-dark"
               onClick={() => auth.signOut()}
             >
               SIGN OUT
-            </div>
+            </OptionDiv>
           ) : (
-            <Link to="/signin" className="font-weight-bold text-dark option">
+            <OptionLink to="/signin" className="font-weight-bold text-dark">
               SIGN IN
-            </Link>
+            </OptionLink>
           )}
           <CartIcon />
-        </div>
+        </OptionsContainer>
         {hidden ? null : <CartDropDown />}
-      </div>
+      </HeaderContainer>
     </div>
   );
 };

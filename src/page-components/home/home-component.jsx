@@ -1,12 +1,15 @@
 import React from "react";
-import "./home.style.scss";
 import Directory from "../../components/directory/directory.component";
+import HomeContainer from "./home.styled.component";
+//import "./home.style.scss";
 
 const Home = () => {
   return (
-    <div className="homepage">
+    //<div className="homepage">
+    <HomeContainer>
       <Directory />
-    </div>
+    </HomeContainer>
+    //</div>
   );
 };
 
