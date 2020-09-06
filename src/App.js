@@ -30,10 +30,9 @@ class App extends React.Component {
             createDate: snapShot.data().createdDate,
           });
         });
-
-        this.props.setCurrentUser(userAuth);
       }
-      this.props.setCurrentUser(null);
+      //getting the userAuth
+      this.props.setCurrentUser(userAuth);
     });
   }
 

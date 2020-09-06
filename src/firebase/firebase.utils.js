@@ -46,4 +46,35 @@ export const signInWithGoogle = () => {
   auth.signInWithPopup(provider);
 };
 
+//function for adding the collections in Firebase.
+export const addCollectionAndDocuments = async (
+  collectionKey,
+  objectsToAdd
+) => {
+  const collections = fireStore.collection(collectionKey);
+  const batch = fireStore.batch();
+  objectsToAdd.forEach((obj) => {
+    const newDocRef = collections.doc();
+    batch.set(newDocRef, obj);
+  });
+  return await batch.commit();
+};
+
+//convert the collections array into object from the firestore.
+export const convertCollectionSnapShotToMap = (collections) => {
+  const transformedCollection = collections.docs.map((doc) => {
+    const { title, items } = doc.data();
+    return {
+      routeName: encodeURI(title.toLowerCase()),
+      id: doc.id,
+      title: title,
+      items: items,
+    };
+  });
+  return transformedCollection.reduce((accumlator, collection) => {
+    accumlator[collection.title.toLowerCase()] = collection;
+    return accumlator;
+  }, {});
+};
+
 export default firebase;

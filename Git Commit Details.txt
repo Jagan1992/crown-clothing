@@ -78,3 +78,9 @@ Ex: handleClick={() => {
 11)Styled-Components:
   Styled Components is used for using our styles in JSX.we can write a function for each styles and then we can import it in our
   component.it uses JSX so the styles rendering will be very fast instead of a normal css class file.
+
+12)Higher Order Components:
+  Higher Order Components take component as an input and then it will return the output
+
+  Ex: For creating the higher order component follow this link:
+    https://github.com/ZhangMYihua/higher-order-components-explained
