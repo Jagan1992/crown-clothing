@@ -84,3 +84,7 @@ Ex: handleClick={() => {
 
   Ex: For creating the higher order component follow this link:
     https://github.com/ZhangMYihua/higher-order-components-explained
+
+13)Redux-Flow:
+   Actions -> Reducers -> Store
+   
