@@ -10,6 +10,7 @@ import SignInSignOut from "./page-components/sign-in-sign-out/sign-in-sign-out-c
 import CheckOut from "./components/checkout/checkout.component";
 import { createUserProfileDocument, auth } from "./firebase/firebase.utils";
 import { userSelector } from "./reducer/user-reducer/user.selector";
+import { ClearCart } from "./reducer/cart-reducer/cart-actions";
 //we can configure all the selectors here.
 import { createStructuredSelector } from "reselect";
 import "./App.css";
@@ -18,6 +19,7 @@ class App extends React.Component {
   unSubscribeAuth = null;
 
   componentDidMount() {
+    const { setCurrentUser, ClearCart } = this.props;
     this.unSubscribeAuth = auth.onAuthStateChanged(async (userAuth) => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
@@ -32,7 +34,10 @@ class App extends React.Component {
         });
       }
       //getting the userAuth
-      this.props.setCurrentUser(userAuth);
+      setCurrentUser(userAuth);
+      if (!userAuth) {
+        ClearCart();
+      }
     });
   }
 
@@ -71,6 +76,9 @@ const mapStateToProps = createStructuredSelector({
 const mapDispatchToProps = (dispatch) => ({
   setCurrentUser: (user) => {
     dispatch(setCurrentUser(user));
+  },
+  ClearCart: () => {
+    dispatch(ClearCart());
   },
 });
 

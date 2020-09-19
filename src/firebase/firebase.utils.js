@@ -39,11 +39,11 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   return userRef;
 };
 
-const provider = new firebase.auth.GoogleAuthProvider();
-provider.setCustomParameters({ prompt: "select_account" });
+export const googleprovider = new firebase.auth.GoogleAuthProvider();
+googleprovider.setCustomParameters({ prompt: "select_account" });
 
 export const signInWithGoogle = () => {
-  auth.signInWithPopup(provider);
+  auth.signInWithPopup(googleprovider);
 };
 
 //function for adding the collections in Firebase.
@@ -75,6 +75,15 @@ export const convertCollectionSnapShotToMap = (collections) => {
     accumlator[collection.title.toLowerCase()] = collection;
     return accumlator;
   }, {});
+};
+
+export const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const unsubscribe = auth.onAuthStateChanged((userAuth) => {
+      unsubscribe();
+      resolve(userAuth);
+    }, reject);
+  });
 };
 
 export default firebase;
