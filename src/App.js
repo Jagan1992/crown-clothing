@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { setCurrentUser } from "./reducer/user-reducer/user-actions";
@@ -15,17 +15,13 @@ import { ClearCart } from "./reducer/cart-reducer/cart-actions";
 import { createStructuredSelector } from "reselect";
 import "./App.css";
 
-class App extends React.Component {
-  unSubscribeAuth = null;
-
-  componentDidMount() {
-    const { setCurrentUser, ClearCart } = this.props;
-    this.unSubscribeAuth = auth.onAuthStateChanged(async (userAuth) => {
+const App = ({ setCurrentUser, currentUser, ClearCart }) => {
+  useEffect(() => {
+    auth.onAuthStateChanged(async (userAuth) => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
-
         userRef.onSnapshot((snapShot) => {
-          this.props.setCurrentUser({
+          setCurrentUser({
             id: snapShot.id,
             displayName: snapShot.data().displayName,
             emailId: snapShot.data().email,
@@ -39,33 +35,24 @@ class App extends React.Component {
         ClearCart();
       }
     });
-  }
+  }, [setCurrentUser, ClearCart]);
 
-  //for unSubScribing from the gmail and to avoid the memory leaks.
-  componentWillUnmount() {
-    this.unSubscribeAuth();
-  }
-
-  render() {
-    return (
-      <div>
-        <Header />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/shop" component={Shop} />
-          <Route path="/contact" component={Contact} />
-          <Route path="/checkout" component={CheckOut} />
-          <Route
-            path="/SignIn"
-            render={() =>
-              this.props.currentUser ? <Redirect to="/" /> : <SignInSignOut />
-            }
-          />
-        </Switch>
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <Header />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/shop" component={Shop} />
+        <Route path="/contact" component={Contact} />
+        <Route path="/checkout" component={CheckOut} />
+        <Route
+          path="/SignIn"
+          render={() => (currentUser ? <Redirect to="/" /> : <SignInSignOut />)}
+        />
+      </Switch>
+    </div>
+  );
+};
 
 //this is used for mapping the state to props in redux.
 const mapStateToProps = createStructuredSelector({

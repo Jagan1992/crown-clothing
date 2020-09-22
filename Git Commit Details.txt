@@ -87,4 +87,10 @@ Ex: handleClick={() => {
 
 13)Redux-Flow:
    Actions -> Reducers -> Store
-   
+  
+14)React-Hooks:
+React Hooks came as the replacement for the lifecycle methods in ReactJS.using react Hooks we can create a functional component and then
+we can state and api calls using useState and useEffect
+
+Ex: i) useState - It is used for managing states
+    ii) useEffect - It is used for doing api calls and if there is an dependency on a function we must had to specify in a array.
