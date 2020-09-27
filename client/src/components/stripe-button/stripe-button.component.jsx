@@ -10,7 +10,6 @@ const StripeCheckoutButton = ({ price, ClearCart }) => {
   const priceForStripe = price * 100;
 
   const onToken = (token) => {
-    console.log(token.id);
     axios({
       url: "payment",
       method: "post",
@@ -20,7 +19,7 @@ const StripeCheckoutButton = ({ price, ClearCart }) => {
       },
     }).then(
       (response) => {
-        alert("Payment Successful");
+        alert("Payment Successful.");
         ClearCart();
       },
       (error) => {
